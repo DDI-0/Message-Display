@@ -1,4 +1,5 @@
-	module clock_divider(
+// active low logic
+module clock_divider(
 		 input wire clk_in,    // 50 MHz input clock
 		 input wire reset,     // Reset signal (active low)
 		 output reg clk_out    // 1 Hz clock output for LED
@@ -25,5 +26,4 @@
         counter <= counter + 1;
     end
 end
-
-	endmodule
+endmodule
