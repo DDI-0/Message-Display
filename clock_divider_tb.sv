@@ -10,7 +10,7 @@ module clock_divider_tb;
     // Instantiate the clock divider module
     clock_divider #(
         .f_input(100),  // 100 Hz input clock for quick simulation
-        .f_output(1)    // 1 Hz desired output clock
+        .f_output(0.5)  // 0.5 Hz desired output clock
     ) uut (
         .clk_in(clk_in),
         .reset(reset),
@@ -26,18 +26,17 @@ module clock_divider_tb;
     initial begin
         // Initialize signals
         clk_in = 0;
-        reset = 0;
+        reset = 0;  // Start with reset active (active-low)
 
-        // Apply reset
+        // Hold reset for 20 ns
         $display("Applying reset...");
-        reset = 1;
-        #20;  // Hold reset for 20 ns
-        reset = 0;
+        #20;
+        reset = 1;  // Release reset (inactive)
         $display("Reset released.");
 
         // Wait for some time to observe clk_out toggling
         $display("Observing output clock behavior...");
-        #5000;  // Wait 5,000 ns (5 us) to observe clk_out changes
+        #5000;  // Wait 5,000 ns to observe clk_out changes
 
         // Finish simulation
         $display("Simulation complete.");
