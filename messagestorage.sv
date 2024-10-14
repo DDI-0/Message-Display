@@ -1,4 +1,4 @@
-//state machine(scroll) + message storage(rom)
+ message storage(rom)
 module messagestorage(
 	input[3:0] addr, // 4-bit address 
 	input wire reset,
@@ -18,7 +18,7 @@ initial begin  // intialize the array with the message
 	message[7] = 8'h4F; // O
 	message[8] = 8'h20; // space
 	message[9] = 8'h43; // C
-	message[10] = 8'h4C;  // L
+	message[10] = 8'h4C; // L
 	message[11] = 8'h49; // I
 	message[12] = 8'h50; // P
 	message[13] = 8'h2E; // .
