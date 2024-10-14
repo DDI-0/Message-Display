@@ -1,5 +1,5 @@
 # Message-Display
-Clock Divider:
+Clock Divider:\
 Module created to create a delay visible to the human eye.\The board I used De10-Lite has a 50Mhz clock.
 The clock divider helped to get it from 50Mhz to 1Hz, which is seen by the human Eye. <br><br>
 Message Storage:\
