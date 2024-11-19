@@ -2,7 +2,7 @@ module clock_divider (
     input  wire clk_in,       
     input  wire reset,        // Active-low reset
     input  wire speed_ctrl,   // Speed control: 0 = normal, 1 = 5x speed
-    output reg  clk_out       // Output clock for scrolling
+    output reg  clk_out       
 );
 
     // Parameters
