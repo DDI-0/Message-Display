@@ -1,6 +1,6 @@
 module scrolling #(
-    parameter MSG_LEN = 11,         // Length of the scrolling message
-    parameter CHAR_WIDTH = 8,       // Width of each character
+    parameter MSG_LEN = 11,         
+    parameter CHAR_WIDTH = 8,       
     parameter NUM_DISPLAYS = 6      
 )(
     input  logic clk,               
@@ -22,12 +22,12 @@ module scrolling #(
         message[2] = 8'b01001100; // 'L'
         message[3] = 8'b01001100; // 'L'
         message[4] = 8'b01001111; // 'O'
-        message[5] = 8'b00100000; // ' ' (space)
+        message[5] = 8'b00100000; // space
         message[6] = 8'b00110001; // '1'
         message[7] = 8'b00110010; // '2'
         message[8] = 8'b00110011; // '3'
         message[9] = 8'b00110100; // '4'
-		  message[10] = 8'b00100000; // ' ' (space)
+		  message[10] = 8'b00100000; // space
 
     end
 
@@ -38,7 +38,7 @@ module scrolling #(
         end else begin
             // Increment index to scroll the message
             if (scroll_index == MSG_LEN)
-                scroll_index <= 0; // Wrap around
+                scroll_index <= 0; 
             else
                 scroll_index <= scroll_index + 1;
         end
