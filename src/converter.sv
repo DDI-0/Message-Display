@@ -18,7 +18,7 @@ module converter (
 
 		8'b00100000: seg_out = 7'b1111111; // blank
 
-            default: seg_out = 7'b111111; // All segments off
+            default: seg_out = 7'b1111111; // All segments off
         endcase
     end
 endmodule
