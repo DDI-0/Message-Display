@@ -6,4 +6,4 @@ Message Storage:\
 Module created to store the message statically to a ROM. The message format was in ASCII. <br><br>
 ASCII Decoder:\
 Module created to manually map the ASCII value to a binary pattern for the 7-segment display.\
-Still in progress, goal is to mimic a moving message using custom parts of the 7 segement display.
+
