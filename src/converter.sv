@@ -15,10 +15,9 @@ module converter (
 				8'b00110010: seg_out = 7'b0100100; // '2' 
 				8'b00110011: seg_out = 7'b0110000; // '3' 
 				8'b00110100: seg_out = 7'b0011001; // '4' 
-            // Space
-            8'b00100000: seg_out = 7'b1111111; // ' ' (blank)
 
-            // Default (unknown character)
+		8'b00100000: seg_out = 7'b1111111; // blank
+
             default: seg_out = 7'b111111; // All segments off
         endcase
     end
