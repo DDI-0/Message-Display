@@ -6,4 +6,4 @@ Message Storage:\
 Module created to store the message statically to a ROM. The message format was in ASCII. <br><br>
 ASCII converter:\
 Module created to manually map the ASCII value to a binary pattern for the 7-segment display.  <br><br>
-Scrolling Logic:\
+Scrolling Logic:
