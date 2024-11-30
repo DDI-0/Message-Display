@@ -1,8 +1,8 @@
 module clock_divider (
-    input  wire clk_in,       
-    input  wire reset,        // Active-low reset
-    input  wire speed_ctrl,   // Speed control: 0 = normal, 1 = 5x speed
-    output reg  clk_out       
+    input  logic clk_in,       
+    input  logic reset,        // Active-low reset
+    input  logic speed_ctrl,   // Speed control: 0 = normal, 1 = 5x speed
+    output logic  clk_out       
 );
 
     // Parameters
@@ -15,7 +15,7 @@ module clock_divider (
     localparam integer toggle_fast = f_input / (2 * f_fast);     
 
     // Counter and toggle value selection
-    reg [$clog2(toggle_normal)-1:0] counter = 0;  // -> calculate bit size log_2(n)
+    logic [$clog2(toggle_normal)-1:0] counter = 0;  // -> calculate bit size log_2(n)
     integer toggle;                              
 
     // Clock division logic
