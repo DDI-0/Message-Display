@@ -3,21 +3,16 @@ module top_level (
     input  logic reset_n,              // Active-low reset
     input  logic dir_switch,           // Switch for direction: 0 = L-to-R, 1 = R-to-L
     input  logic speed_switch,         // Switch for speed: 0 = normal, 1 = fast
-    output logic [6:0] hex0_segments,  
-    output logic [6:0] hex1_segments,  
-    output logic [6:0] hex2_segments,  
-    output logic [6:0] hex3_segments,  
-    output logic [6:0] hex4_segments,  
-    output logic [6:0] hex5_segments  
+    output logic[6:0] hex_segments[5:0]
 );
 
     // Parameters
-    parameter MSG_LEN = 11;           
-    parameter CHAR_WIDTH = 8;         
-    parameter NUM_DISPLAYS = 6;       
+    localparam MSG_LEN = 11;           
+    localparam CHAR_WIDTH = 8;         
+    localparam NUM_DISPLAYS = 6;       
 
     // Internal Signals
-    wire clk_scroll;                  // Scrolling clock 
+    logic enable_top;                  // Scrolling clock 
     logic [CHAR_WIDTH-1:0] display_chars [NUM_DISPLAYS-1:0]; 
     logic [6:0] segment_data [NUM_DISPLAYS-1:0];            
 
@@ -29,7 +24,7 @@ module top_level (
         .clk_in(clk_50mhz),
         .reset(reset_n),
         .speed_ctrl(speed_switch),    
-        .clk_out(clk_scroll)
+        .enable(enable_top)
     );
 
     // Scrolling Logic
@@ -38,7 +33,7 @@ scrolling #(
      .CHAR_WIDTH(CHAR_WIDTH),
      .NUM_DISPLAYS(NUM_DISPLAYS)
 ) scrolling_inst (
-        .clk(clk_scroll),            
+        .enable(enable_top),  // changed          
         .rst_n(reset_n),
         .scroll_dir(dir_switch),      // Connect the direction control switch
         .display_chars(display_chars)
@@ -55,12 +50,6 @@ scrolling #(
         end
     endgenerate
 
-    // Assign Segment Outputs to Each HEX Display
-    assign hex0_segments = segment_data[0];
-    assign hex1_segments = segment_data[1];
-    assign hex2_segments = segment_data[2];
-    assign hex3_segments = segment_data[3];
-    assign hex4_segments = segment_data[4];
-    assign hex5_segments = segment_data[5];
+  assign hex_segments = segment_data;
 
 endmodule
