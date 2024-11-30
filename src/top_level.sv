@@ -1,14 +1,14 @@
 module top_level (
-    input  wire clk_50mhz,            // 50 MHz input clock
-    input  wire reset_n,              // Active-low reset
-    input  wire dir_switch,           // Switch for direction: 0 = L-to-R, 1 = R-to-L
-    input  wire speed_switch,         // Switch for speed: 0 = normal, 1 = fast
-    output wire [6:0] hex0_segments,  
-    output wire [6:0] hex1_segments,  
-    output wire [6:0] hex2_segments,  
-    output wire [6:0] hex3_segments,  
-    output wire [6:0] hex4_segments,  
-    output wire [6:0] hex5_segments  
+    input  logic clk_50mhz,            // 50 MHz input clock
+    input  logic reset_n,              // Active-low reset
+    input  logic dir_switch,           // Switch for direction: 0 = L-to-R, 1 = R-to-L
+    input  logic speed_switch,         // Switch for speed: 0 = normal, 1 = fast
+    output logic [6:0] hex0_segments,  
+    output logic [6:0] hex1_segments,  
+    output logic [6:0] hex2_segments,  
+    output logic [6:0] hex3_segments,  
+    output logic [6:0] hex4_segments,  
+    output logic [6:0] hex5_segments  
 );
 
     // Parameters
