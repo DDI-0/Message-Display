@@ -1,9 +1,0 @@
-module max10_adc (
-    input  logic        pll_clk,  // Clock input
-    input  logic [3:0]  chsel,    // 4-bit channel select (range: 0 -> 31)
-    input  logic        soc,      // Start of conversion
-    input  logic        tsen,     // Temperature sensor enable
-    output logic [3:0]  dout,     // 4-bit digital output
-    output logic        eoc,      // End of conversion signal
-    output logic        clk_dft   // Clock for DFT (not clear from context)
-);
