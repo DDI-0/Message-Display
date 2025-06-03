@@ -1,7 +1,7 @@
 # Message-Display
 Clock Divider:\
-Module created to create a delay visible to the human eye.\The board I used De10-Lite has a 50Mhz clock.
-The clock divider helped to get it from 50Mhz to 1Hz, which is seen by the human Eye. <br><br>
+Module created to display a delay visible to the human eye. The board I used was the De10-Lite which has a 50Mhz clock.
+The clock divider helped to reduce it from 50Mhz to 1Hz, which is able to be seen by the human Eye. <br><br>
 Message Storage:\
 Module created to store the message statically to a ROM. The message format was in ASCII. <br><br>
 ASCII converter:\
