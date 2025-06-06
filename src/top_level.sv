@@ -22,24 +22,24 @@ module top_level (
         .f_fast(10)                    
     ) clk_div_inst (
         .clk_in(clk_50mhz),
-        .reset(reset_n),
+        .reset_n(reset_n),            
         .speed_ctrl(speed_switch),    
         .enable(enable_top)
     );
 
     // Scrolling Logic
-scrolling #(
-     .MSG_LEN(MSG_LEN),
-     .CHAR_WIDTH(CHAR_WIDTH),
-     .NUM_DISPLAYS(NUM_DISPLAYS)
-) scrolling_inst (
-        .enable(enable_top),  // changed          
+    scrolling #(
+        .MSG_LEN(MSG_LEN),
+        .CHAR_WIDTH(CHAR_WIDTH),
+        .NUM_DISPLAYS(NUM_DISPLAYS)
+    ) scrolling_inst (
+        .clk(clk_50mhz),              
+        .enable(enable_top),          
         .rst_n(reset_n),
-        .scroll_dir(dir_switch),      // Connect the direction control switch
+        .scroll_dir(dir_switch),      
         .display_chars(display_chars)
     );
 
-   //  Conversion for Each Display
     genvar i;
     generate
         for (i = 0; i < NUM_DISPLAYS; i++) begin : ascii_to_seg
@@ -50,6 +50,6 @@ scrolling #(
         end
     endgenerate
 
-  assign hex_segments = segment_data;
+    assign hex_segments = segment_data;
 
 endmodule
